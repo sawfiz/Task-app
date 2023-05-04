@@ -1,9 +1,16 @@
 import React from 'react';
+import Item from './Item';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-export default function Overview({tasks}) {
-console.log("🚀 ~ file: Overview.js:4 ~ Overview ~ tasks:", tasks)
-
-  const tasksLi = tasks.map(task => <li key={task.uid}>{task.title}</li>)
-  return <div>Overview
-    <ol>{tasksLi}</ol></div>;
+export default function Overview({ tasks, onDelete }) {
+  return (
+    <div>
+      Overview
+      <ul>
+        {tasks.map((task) => (
+          <Item key={task.uid} task={task} onDelete={onDelete} />
+        ))}
+      </ul>
+    </div>
+  );
 }
